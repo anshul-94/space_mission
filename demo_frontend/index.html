@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Space Mission Analytics Dashboard — Explore mission success rates, launch trends, country analytics, and AI-powered insights.">
+<title>Space Mission Dashboard - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="page-home">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-brand">🚀 Space Analytics</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link nav-active">Home</a></li>
+    <li><a href="mission.html" class="nav-link">Mission Success</a></li>
+    <li><a href="launch.html" class="nav-link">Launch Trend</a></li>
+    <li><a href="country.html" class="nav-link">Country Analytics</a></li>
+    <li><a href="insights.html" class="nav-link">AI Insights</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+</nav>
+
+<!-- ================= PAGE SUMMARY ================= -->
+<div class="page-summary">
+  <h2>Global Space Analytics</h2>
+  <div class="analytics-summary">
+    <div class="analytics-card">
+      <div class="analytics-label">Total Missions</div>
+      <div class="analytics-value" id="sumTotal">--</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Success Rate</div>
+      <div class="analytics-value" id="sumSuccessRate">--</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Top Country</div>
+      <div class="analytics-value" id="sumTopCountry">--</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Top Company</div>
+      <div class="analytics-value" id="sumTopCompany">--</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FILTER ================= -->
+<div class="filter-container">
+  <div class="filter-item">
+    <label for="countryFilter">Country Overview</label>
+    <select id="countryFilter">
+      <option value="All">All</option>
+    </select>
+  </div>
+  <div class="filter-item">
+    <label for="topSelector">Top Countries (Distribution)</label>
+    <select id="topSelector">
+      <option value="5">Top 5</option>
+      <option value="10">Top 10</option>
+      <option value="All">All</option>
+    </select>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD GRID ================= -->
+<main class="dashboard">
+
+  <!-- AI INSIGHTS -->
+  <section class="card insights-card">
+    <h2>🧠 AI Insights</h2>
+    <ul id="insightsList" class="insights-list"></ul>
+  </section>
+
+  <!-- SUCCESS VS FAILURE -->
+  <section class="card">
+    <h2>Mission Success vs Failure</h2>
+    <div class="chart-container">
+      <canvas id="successChart"></canvas>
+    </div>
+  </section>
+
+  <!-- LAUNCH TREND -->
+  <section class="card">
+    <h2>Launches Per Year</h2>
+    <div class="chart-container">
+      <canvas id="yearChart"></canvas>
+    </div>
+  </section>
+
+  <!-- COUNTRY DISTRIBUTION -->
+  <section class="card">
+    <h2>Country Launch Distribution</h2>
+    <div class="chart-container">
+      <canvas id="countryChart"></canvas>
+    </div>
+  </section>
+
+  <!-- ML PREDICTION -->
+  <section class="card prediction-card">
+    <h2>Mission Success Prediction</h2>
+    <form id="predictionForm">
+      <div class="form-group">
+        <label>Company</label>
+        <input list="companies" id="company" placeholder="SpaceX">
+        <datalist id="companies"></datalist>
+      </div>
+      <div class="form-group">
+        <label>Country</label>
+        <input list="countries" id="countryInput" placeholder="USA">
+        <datalist id="countries"></datalist>
+      </div>
+      <div class="form-group">
+        <label>Rocket Status</label>
+        <input list="rocketStatus" id="rocket_status" placeholder="Active">
+        <datalist id="rocketStatus"></datalist>
+      </div>
+      <div class="form-group">
+        <label>Launch Year</label>
+        <input type="number" id="launch_year" placeholder="2025">
+      </div>
+      <div class="form-group">
+        <label>Launch Month</label>
+        <input type="number" id="launch_month" placeholder="5">
+      </div>
+      <div class="form-group">
+        <label>Rocket Cost</label>
+        <div class="cost-input">
+          <input type="number" id="rocket_cost" placeholder="50">
+          <span class="million-label">Million USD</span>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary">Predict Mission</button>
+    </form>
+    <div id="predictionResult" class="prediction-result"></div>
+    <div class="chart-container">
+      <canvas id="probChart"></canvas>
+    </div>
+  </section>
+
+  <!-- LAUNCH FORECAST -->
+  <section class="card">
+    <h2>Launch Forecast (Historical + Prediction)</h2>
+    <div class="forecast-controls">
+      <label>Select Country for Forecast:</label>
+      <select id="forecastCountry">
+        <option value="All">All Countries</option>
+      </select>
+    </div>
+    <div class="chart-container">
+      <canvas id="forecastChart"></canvas>
+    </div>
+    <button id="forecastBtn" class="btn-secondary">Update Forecast</button>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>Space Mission Analytics Dashboard | Data from public space mission datasets</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

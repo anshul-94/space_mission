@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mission Success Analytics - Space Mission Dashboard">
+<title>Mission Success - Space Mission Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="page-mission">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-brand">🚀 Space Analytics</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="mission.html" class="nav-link nav-active">Mission Success</a></li>
+    <li><a href="launch.html" class="nav-link">Launch Trend</a></li>
+    <li><a href="country.html" class="nav-link">Country Analytics</a></li>
+    <li><a href="insights.html" class="nav-link">AI Insights</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+</nav>
+
+<!-- ================= PAGE SUMMARY ================= -->
+<div class="page-summary">
+  <h2>Mission Success Analytics</h2>
+  <div class="analytics-summary">
+    <div class="analytics-card">
+      <div class="analytics-label">Selected Country</div>
+      <div class="analytics-value" id="sumSelectedCountry" style="font-size:24px;">All</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Total Missions</div>
+      <div class="analytics-value" id="sumTotal">--</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Success Rate</div>
+      <div class="analytics-value" id="sumSuccessRate">--</div>
+    </div>
+    <div class="analytics-card">
+      <div class="analytics-label">Failure Rate</div>
+      <div class="analytics-value" id="sumFailureRate">--</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FILTER ================= -->
+<div class="filter-container">
+  <div class="filter-item">
+    <label for="missionCountryFilter">Filter by Country</label>
+    <select id="missionCountryFilter">
+      <option value="All">All Countries</option>
+    </select>
+  </div>
+</div>
+
+<!-- ================= FULL PAGE CHART ================= -->
+<main class="full-page-container">
+  
+  <section class="card large-card">
+    <h2>Mission Outcomes Distribution</h2>
+    <div class="large-chart-container pie-container">
+      <canvas id="successChartFull"></canvas>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Space Mission Analytics Dashboard</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

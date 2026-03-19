@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AI Insights - Space Mission Dashboard">
+<title>AI Insights - Space Mission Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="page-insights">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-brand">🚀 Space Analytics</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="mission.html" class="nav-link">Mission Success</a></li>
+    <li><a href="launch.html" class="nav-link">Launch Trend</a></li>
+    <li><a href="country.html" class="nav-link">Country Analytics</a></li>
+    <li><a href="insights.html" class="nav-link nav-active">AI Insights</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+</nav>
+
+<!-- ================= PAGE SUMMARY ================= -->
+<div class="page-summary">
+  <h2>AI Insights Summary</h2>
+  <div class="analytics-summary insights-summary-metrics">
+    <div class="analytics-card">
+      <div class="analytics-value" id="sumInsightsText" style="font-size:18px; font-weight:500; color:#e2e8f0; text-shadow:none;">Select a country to view tailored AI insights.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FILTER ================= -->
+<div class="filter-container">
+  <div class="filter-item">
+    <label for="insightsCountryFilter">Filter by Country</label>
+    <select id="insightsCountryFilter">
+      <option value="All">All Countries</option>
+    </select>
+  </div>
+</div>
+
+<!-- ================= FULL PAGE CONTENT ================= -->
+<main class="full-page-container">
+  
+  <section class="card no-hover-card">
+    <h2>AI-Generated Analysis</h2>
+    <ul id="insightsListFull" class="insights-list-full">
+      <!-- Generated items will appear here -->
+      <li class="insight-item loading-text">Loading insights...</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Space Mission Analytics Dashboard</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
